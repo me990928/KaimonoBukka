@@ -13,25 +13,20 @@ struct KaimonoView: View {
             ScrollView {
                 LazyVStack {
                     NavigationLink {
-                        
+                        KaimonoDetailView()
                     } label: {
-                        InformationCard(cardColor: Color(.systemGray2)) {
+                        InformationCard(cardColor: Color(.systemGray3)) {
                             VStack(alignment: .leading) {
                                 HStack {
-                                    Text("カレーを買いに行く今日もお聞き機佐久間さん").font(.headline)
+                                    Text("カレーを買いに行く今日もお聞き機佐久間さん").lineLimit(1).font(.headline)
                                     Spacer()
-                                    Menu {
-                                        Text("詳細")
-                                    } label: {
-                                        Image(systemName: "ellipsis")
-                                    }
                                     
                                 }
                                 Divider()
-                                Text("店名: OK")
+                                Text("店名: OK").lineLimit(1)
                                 Text("予定日: 2025/04/29")
                             }.padding()
-                        }.padding()
+                        }.padding().foregroundStyle(Color(.label))
                     }.contextMenu {
                         Text("Delete")
                     }
@@ -45,7 +40,7 @@ struct KaimonoView: View {
                     }
                     
                 }
-            }
+            }.navigationTitle(Text("買い物リスト"))
         }
     }
 }

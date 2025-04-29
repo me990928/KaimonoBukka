@@ -9,7 +9,44 @@ import SwiftUI
 
 struct KaimonoDetailView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                Section {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("カレーの材料調達").font(.headline)
+                            Spacer()
+                            Menu {
+                                
+                            } label: {
+                                Image(systemName: "ellipsis")
+                                
+                            }
+                        }
+                        Divider()
+                        Text("材料の調達方法")
+                        Text("予定日: 2025/04/29")
+                    }
+                }
+                
+                Section("買うもの") {
+                    NavigationLink {
+                        Text("買う物の詳細view")
+                    } label: {
+                        HStack {
+                            Text("買うもの1")
+                            Spacer()
+                            Text("平均: 100円")
+                        }
+                    }
+
+                }
+            }.safeAreaInset(edge: .bottom) {
+                Button {} label: {
+                    Text("買うものを追加する")
+                }.buttonStyle(.borderedProminent).padding()
+            }
+        }
     }
 }
 

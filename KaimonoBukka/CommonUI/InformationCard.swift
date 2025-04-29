@@ -10,23 +10,24 @@ import SwiftUI
 struct InformationCard<Content: View>: View {
     
     @State var content: () -> Content
-    @State var cardColor: Color = .blue
+    @State var cardColor: Color
     
-    init(cardColor: Color = .blue, @ViewBuilder information: @escaping () -> Content) {
+    init(cardColor: Color = .gray, @ViewBuilder information: @escaping () -> Content) {
+        self.cardColor = cardColor
         self.content = information
     }
     
     var body: some View {
         VStack {
-            self.content()
-        }.background(cardColor)
+            self.content().padding()
+        }.background(cardColor, in: RoundedRectangle(cornerRadius: 10))
     }
     
 }
 
 
 #Preview {
-    InformationCard(cardColor: .brown) {
+    InformationCard() {
         Text("Hello, World!")
-    }.disabled(<#T##disabled: Bool##Bool#>)
+    }.disabled(false)
 }

@@ -16,37 +16,34 @@ struct KaimonoView: View {
                         
                     } label: {
                         InformationCard(cardColor: Color(.systemGray2)) {
-                            ZStack {
-                                VStack(alignment: .leading) {
-                                    Text("カレーを買いに行く今日もお聞き機佐久間さん").font(.headline).padding(.top)
-                                    Divider()
-                                    Text("店名: OK")
-                                    Text("予定日: 2025年4月29日")
-                                }.padding()
-                                VStack{
-                                    HStack{
-                                        Spacer()
-                                        Menu {
-                                            Text("Delete")
-                                        } label: {
-                                            Image(systemName: "ellipsis")
-                                        }
-                                    }
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("カレーを買いに行く今日もお聞き機佐久間さん").font(.headline)
                                     Spacer()
-                                }.padding()
-                            }
+                                    Menu {
+                                        Text("詳細")
+                                    } label: {
+                                        Image(systemName: "ellipsis")
+                                    }
+                                    
+                                }
+                                Divider()
+                                Text("店名: OK")
+                                Text("予定日: 2025/04/29")
+                            }.padding()
                         }.padding()
+                    }.contextMenu {
+                        Text("Delete")
                     }
-
                 }
             }.toolbar {
                 ToolbarItem {
                     Button {
                         // 作成フォームへ
                     } label: {
-                       Image(systemName: "plus")
+                        Image(systemName: "plus")
                     }
-
+                    
                 }
             }
         }

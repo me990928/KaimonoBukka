@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct KaumonoView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack() {
+            ScrollView {
+                LazyVStack {
+                    NavigationLink {
+                        Text("Detail")
+                    } label: {
+                        InformationCard(cardColor: Color(.systemGray2)) {
+                            KaumonoInformationCardBody()
+                        }.padding().clipped().shadow(radius: 5)
+                    }
+                    
+                }
+            }.navigationTitle("買う物リスト")
+        }
     }
 }
 

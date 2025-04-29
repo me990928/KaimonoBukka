@@ -18,8 +18,8 @@ struct InformationCard<Content: View>: View {
     }
     
     var body: some View {
-        VStack {
-            self.content().padding()
+        VStack(spacing: 0) {
+            self.content()
         }.background(cardColor, in: RoundedRectangle(cornerRadius: 10))
     }
     
